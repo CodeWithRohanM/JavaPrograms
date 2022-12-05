@@ -1,24 +1,15 @@
 package javapro;
 
 
-
-class Main{
-
-    public static boolean isPrime(int num)
-    {
-        for(int i=2;i<num/2;i++)
-        {
-            if(num % i == 0)
-            return false;
-        }
-        return true;
-    }
-
+class Main
+{
     public static void main(String[] args) {
         
+        int left = 1, right = 20;
+        int mul = 1;
 
-        int num = 15, count = 0;
-        boolean arr[] = new boolean[num];
+        boolean arr[] = new boolean[right+1];
+
 
         arr[0] = arr[1] = false;
 
@@ -27,32 +18,106 @@ class Main{
             arr[i] = true;
         }
 
-        for(int i=2;i<arr.length;i++)
+
+        for(int i=left;i<arr.length;i++)
         {
             if(arr[i])
             {
-                arr[i] = false;
-
-                for(int j=2; j*i < num; j++)
+                for(int j=2; j*i < arr.length;j++)
                 {
                     arr[i*j] = false;
                 }
-                count++;
+                mul = mul * i;
             }
-
-            System.out.print("Array = ");
-            for(int k=0;k<arr.length;k++)
-            {
-
-                System.out.print(arr[k]+" ");
-            }
-            System.out.println();
         }
 
-        System.out.println("Count = "+count);
+        System.out.println("Mul = "+mul);
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class Main{
+
+//     public static boolean isPrime(int num)
+//     {
+//         for(int i=2;i<num/2;i++)
+//         {
+//             if(num % i == 0)
+//             return false;
+//         }
+//         return true;
+//     }
+
+//     public static void main(String[] args) {
+        
+
+//         int num = 15, count = 0;
+//         boolean arr[] = new boolean[num];
+
+//         arr[0] = arr[1] = false;
+
+//         for(int i=2;i<arr.length;i++)
+//         {
+//             arr[i] = true;
+//         }
+
+//         for(int i=2;i<arr.length;i++)
+//         {
+//             if(arr[i])
+//             {
+//                 arr[i] = false;
+
+//                 for(int j=2; j*i < num; j++)
+//                 {
+//                     arr[i*j] = false;
+//                 }
+//                 count++;
+//             }
+
+//             System.out.print("Array = ");
+//             for(int k=0;k<arr.length;k++)
+//             {
+
+//                 System.out.print(arr[k]+" ");
+//             }
+//             System.out.println();
+//         }
+
+//         System.out.println("Count = "+count);
+
+//     }
+// }
 
 
 
