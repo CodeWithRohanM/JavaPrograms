@@ -2,31 +2,54 @@ package javapro;
 
 
 
-class Main
-{
-    public static boolean isPrime(int n)
-    {
-        if(n <= 1)
-            return false;
+class Main{
 
-        for(int i=2;i<=n/2;i++)
+    public static boolean isPrime(int num)
+    {
+        for(int i=2;i<num/2;i++)
         {
-            if(n%i == 0)
-                return false;
+            if(num % i == 0)
+            return false;
         }
         return true;
     }
+
     public static void main(String[] args) {
         
 
-        int n = 5;
-        boolean getPrime = isPrime(n);
+        int num = 15, count = 0;
+        boolean arr[] = new boolean[num];
 
-        if(getPrime)
-            System.out.println(n+" is a prime number");
-        else
-            System.out.println(n+" is not a prime number");
+        arr[0] = arr[1] = false;
 
+        for(int i=2;i<arr.length;i++)
+        {
+            arr[i] = true;
+        }
+
+        for(int i=2;i<arr.length;i++)
+        {
+            if(arr[i])
+            {
+                arr[i] = false;
+
+                for(int j=2; j*i < num; j++)
+                {
+                    arr[i*j] = false;
+                }
+                count++;
+            }
+
+            System.out.print("Array = ");
+            for(int k=0;k<arr.length;k++)
+            {
+
+                System.out.print(arr[k]+" ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Count = "+count);
 
     }
 }
