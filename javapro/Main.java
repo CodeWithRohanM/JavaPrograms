@@ -1,38 +1,31 @@
 package javapro;
 
 
-class Main
-{
+class Main{
+
+    public static int gcd(int left, int right)
+    {
+        if(left == 0)
+            return right;
+        if(right == 0)
+            return left;
+            
+        while(left!=right)
+        {
+            if(left > right)
+                left = left - right;
+            else
+                right = right - left;    
+        }    
+        return left;
+    }
     public static void main(String[] args) {
         
-        int left = 1, right = 20;
-        int mul = 1;
+        int left = 72, right = 48;
 
-        boolean arr[] = new boolean[right+1];
+        int getGCD = gcd(left, right);
 
-
-        arr[0] = arr[1] = false;
-
-        for(int i=2;i<arr.length;i++)
-        {
-            arr[i] = true;
-        }
-
-
-        for(int i=left;i<arr.length;i++)
-        {
-            if(arr[i])
-            {
-                for(int j=2; j*i < arr.length;j++)
-                {
-                    arr[i*j] = false;
-                }
-                mul = mul * i;
-            }
-        }
-
-        System.out.println("Mul = "+mul);
-
+        System.out.println("GCD = "+getGCD);
     }
 }
 
@@ -51,6 +44,52 @@ class Main
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// class Main
+// {
+//     public static void main(String[] args) {
+        
+//         int left = 1, right = 20;
+//         int mul = 1;
+
+//         boolean arr[] = new boolean[right+1];
+
+
+//         arr[0] = arr[1] = false;
+
+//         for(int i=2;i<arr.length;i++)
+//         {
+//             arr[i] = true;
+//         }
+
+
+//         for(int i=left;i<arr.length;i++)
+//         {
+//             if(arr[i])
+//             {
+//                 for(int j=2; j*i < arr.length;j++)
+//                 {
+//                     arr[i*j] = false;
+//                 }
+//                 mul = mul * i;
+//             }
+//         }
+
+//         System.out.println("Mul = "+mul);
+
+//     }
+// }
 
 
 
